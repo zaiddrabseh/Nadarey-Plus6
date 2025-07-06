@@ -1,207 +1,36 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شكرًا لك | Nadarey-Plus6</title>
-    <style>
-        :root {
-            --primary-color: #4a6bff;
-            --secondary-color: #f8f9fa;
-            --text-color: #333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', Arial, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .thank-you-container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 600px;
-            padding: 40px;
-            text-align: center;
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        .checkmark {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 25px;
-            background-color: #4CAF50;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .checkmark:after {
-            content: "✓";
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-        }
-        
-        h1 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        p {
-            margin-bottom: 25px;
-            font-size: 18px;
-        }
-        
-        .countdown-box {
-            background: rgba(74, 107, 255, 0.1);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .countdown {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.2em;
-        }
-        
-        .contact-box {
-            background: var(--secondary-color);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-        }
-        
-        .phone {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--primary-color);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: all 0.3s;
-        }
-        
-        .phone:hover {
-            background: #3a5bef;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        .btn:hover {
-            background: #3a5bef;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @media (max-width: 768px) {
-            .thank-you-container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            p {
-                font-size: 16px;
-            }
-        }
-    </style>
-    <!-- خط Tajawal للعربية -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>شكراً على الشراء</title>
+  <meta http-equiv="refresh" content="5;url=assets/pluse.pdf" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #28a745;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #0070ba;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    a:hover {
+      background-color: #005c9c;
+    }
+  </style>
 </head>
 <body>
-    <div class="thank-you-container">
-        <div class="checkmark"></div>
-        <h1>شكرًا لك!</h1>
-        <p>تم استلام طلبك بنجاح، سيتم توجيهك لصفحة الدفع خلال:</p>
-        
-        <div class="countdown-box">
-            <span class="countdown" id="countdown">5</span> ثانية
-        </div>
-        
-        <div class="contact-box">
-            <p>للتواصل السريع:</p>
-            <a href="tel:0789541798" class="phone">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                0789541798
-            </a>
-        </div>
-        
-        <a href="payment.html" class="btn" id="manual-redirect">الانتقال لصفحة الدفع الآن</a>
-    </div>
-
-    <script>
-        // بدء العد التنازلي
-        let seconds = 5;
-        const countdownElement = document.getElementById('countdown');
-        const manualRedirectBtn = document.getElementById('manual-redirect');
-        
-        function updateCountdown() {
-            countdownElement.textContent = seconds;
-            seconds--;
-            
-            if (seconds < 0) {
-                // التوجيه التلقائي بعد انتهاء العد
-                window.location.href = "payment.html";
-            } else {
-                setTimeout(updateCountdown, 1000);
-            }
-        }
-        
-        // بدء العد التنازلي عند تحميل الصفحة
-        window.addEventListener('load', function() {
-            updateCountdown();
-            
-            // إضافة حدث للزر اليدوي
-            manualRedirectBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.location.href = "payment.html";
-            });
-        });
-    </script>
+  <h1>✅ شكراً لك!</h1>
+  <p>تم الدفع بنجاح، سيتم تحويلك لتحميل الملف خلال 5 ثواني...</p>
+  <a href="assets/pluse.pdf" download>📥 اضغط هنا إذا لم يتم التحويل</a>
 </body>
 </html>
