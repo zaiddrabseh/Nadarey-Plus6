@@ -1,160 +1,101 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شكرًا لك | Nadarey-Plus6</title>
+    <!-- باقي الهيد بدون تغيير -->
     <style>
-        :root {
-            --primary-color: #4a6bff;
-            --secondary-color: #f8f9fa;
-            --text-color: #333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', Arial, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .thank-you-container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 600px;
-            padding: 40px;
+        /* أنماط قسم التنزيل المعدلة */
+        .download-section {
+            display: none;
             text-align: center;
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        .checkmark {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 25px;
-            background-color: #4CAF50;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .checkmark:after {
-            content: "✓";
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-        }
-        
-        h1 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        p {
-            margin-bottom: 25px;
-            font-size: 18px;
-        }
-        
-        .contact-box {
-            background: var(--secondary-color);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-        }
-        
-        .phone {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--primary-color);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: all 0.3s;
-        }
-        
-        .phone:hover {
-            background: #3a5bef;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        .btn:hover {
-            background: #3a5bef;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
+            padding: 50px 30px;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            margin: 40px auto;
+            max-width: 700px;
+            border: 2px solid var(--success-color);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
         }
         
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        @media (max-width: 768px) {
-            .thank-you-container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            p {
-                font-size: 16px;
-            }
-        }
     </style>
-    <!-- خط Tajawal للعربية -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="thank-you-container">
-        <div class="checkmark"></div>
-        <h1>شكرًا لك!</h1>
-        <p>تم استلام طلبك بنجاح وسنتواصل معك قريبًا.</p>
-        
-        <div class="contact-box">
-            <p>للتواصل السريع:</p>
-            <a href="tel:0789541798" class="phone">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                0789541798
-            </a>
+    <!-- قسم التنزيل المعدل -->
+    <div id="download-section" class="download-section">
+        <div class="thank-you">
+            <i class="fas fa-check-circle"></i>
+            <h2>تمت عملية الشراء بنجاح!</h2>
         </div>
-        
-        <a href="index.html" class="btn">العودة إلى الصفحة الرئيسية</a>
+        <p id="download-message">جاري تجهيز ملف الأسئلة للتنزيل...</p>
+        <div id="countdown-box" style="display:none;">
+            <p class="auto-download">سيبدأ التنزيل تلقائياً خلال <span id="countdown">5</span> ثوانٍ...</p>
+            <button id="download-btn" class="download-btn">
+                <i class="fas fa-download"></i> تنزيل الآن
+            </button>
+        </div>
     </div>
+
+    <script>
+        // دالة التنزيل الفعلي
+        function triggerDownload() {
+            const fileUrl = "assets/bluse.pdf?t=" + new Date().getTime();
+            const a = document.createElement('a');
+            a.href = fileUrl;
+            a.download = "أسئلة_رخصة_القيادة_السعودية.pdf";
+            
+            document.body.appendChild(a);
+            a.click();
+            
+            setTimeout(() => {
+                document.body.removeChild(a);
+                document.getElementById('download-btn').innerHTML = '<i class="fas fa-check"></i> تم التنزيل بنجاح';
+            }, 100);
+        }
+
+        // دالة العد التنازلي
+        function startCountdown() {
+            let seconds = 5;
+            const countdownElement = document.getElementById('countdown');
+            const countdownBox = document.getElementById('countdown-box');
+            const downloadMessage = document.getElementById('download-message');
+            
+            // إظهار عناصر العد التنازلي
+            downloadMessage.textContent = 'مبروك! يمكنك الآن تنزيل ملف الأسئلة';
+            countdownBox.style.display = 'block';
+            
+            // بدء العد التنازلي
+            const timer = setInterval(() => {
+                countdownElement.textContent = seconds;
+                seconds--;
+                
+                if (seconds < 0) {
+                    clearInterval(timer);
+                    triggerDownload();
+                }
+            }, 1000);
+        }
+
+        // عند تحميل الصفحة، تحقق إذا كان يجب عرض قسم التنزيل
+        document.addEventListener('DOMContentLoaded', function() {
+            // محاكاة نجاح الدفع (للاستخدام الحقيقي، استبدل هذا بحدث PayPal الفعلي)
+            const isPaymentSuccess = window.location.hash === '#payment_success';
+            
+            if (isPaymentSuccess) {
+                document.getElementById('download-section').style.display = 'block';
+                startCountdown();
+            }
+            
+            // زر التنزيل اليدوي
+            document.getElementById('download-btn').addEventListener('click', triggerDownload);
+        });
+
+        // (للتجربة السريعة: أضف هذا الرابط في نهاية URL: #payment_success)
+    </script>
 </body>
 </html>
