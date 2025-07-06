@@ -1,101 +1,153 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- باقي الهيد بدون تغيير -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شكراً لشرائك - ملف رخصة القيادة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* أنماط قسم التنزيل المعدلة */
-        .download-section {
-            display: none;
-            text-align: center;
-            padding: 50px 30px;
-            background: linear-gradient(135deg, #ffffff, #f8f9fa);
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            margin: 40px auto;
-            max-width: 700px;
-            border: 2px solid var(--success-color);
-            position: relative;
-            overflow: hidden;
-            animation: fadeIn 1s ease-out;
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .thank-you-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background-color: var(--success-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .checkmark i {
+            color: white;
+            font-size: 40px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--success-color);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .download-btn:hover {
+            background: #219653;
+            transform: translateY(-3px);
+        }
+        
+        .countdown {
+            margin: 20px 0;
+            font-size: 16px;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <!-- قسم التنزيل المعدل -->
-    <div id="download-section" class="download-section">
-        <div class="thank-you">
-            <i class="fas fa-check-circle"></i>
-            <h2>تمت عملية الشراء بنجاح!</h2>
+    <div class="thank-you-container">
+        <div class="checkmark">
+            <i class="fas fa-check"></i>
         </div>
-        <p id="download-message">جاري تجهيز ملف الأسئلة للتنزيل...</p>
-        <div id="countdown-box" style="display:none;">
-            <p class="auto-download">سيبدأ التنزيل تلقائياً خلال <span id="countdown">5</span> ثوانٍ...</p>
-            <button id="download-btn" class="download-btn">
-                <i class="fas fa-download"></i> تنزيل الآن
-            </button>
+        <h1>شكراً لشرائك!</h1>
+        <p>تمت عملية الدفع بنجاح، سيبدأ تنزيل الملف تلقائياً خلال ثوانٍ</p>
+        
+        <div class="countdown">
+            سيبدأ التنزيل خلال <span id="countdown">5</span> ثانية...
         </div>
+        
+        <button id="download-btn" class="download-btn">
+            <i class="fas fa-download"></i> تنزيل الملف الآن
+        </button>
+        
+        <p>للتواصل: <a href="https://wa.me/966789541798">واتساب 0789541798</a></p>
     </div>
 
     <script>
-        // دالة التنزيل الفعلي
-        function triggerDownload() {
-            const fileUrl = "assets/bluse.pdf?t=" + new Date().getTime();
-            const a = document.createElement('a');
-            a.href = fileUrl;
-            a.download = "أسئلة_رخصة_القيادة_السعودية.pdf";
-            
-            document.body.appendChild(a);
-            a.click();
-            
-            setTimeout(() => {
-                document.body.removeChild(a);
-                document.getElementById('download-btn').innerHTML = '<i class="fas fa-check"></i> تم التنزيل بنجاح';
-            }, 100);
-        }
-
-        // دالة العد التنازلي
-        function startCountdown() {
+        // دالة العد التنازلي والتنزيل
+        function startDownloadProcess() {
             let seconds = 5;
             const countdownElement = document.getElementById('countdown');
-            const countdownBox = document.getElementById('countdown-box');
-            const downloadMessage = document.getElementById('download-message');
+            const downloadBtn = document.getElementById('download-btn');
             
-            // إظهار عناصر العد التنازلي
-            downloadMessage.textContent = 'مبروك! يمكنك الآن تنزيل ملف الأسئلة';
-            countdownBox.style.display = 'block';
-            
-            // بدء العد التنازلي
+            // تحديث العداد كل ثانية
             const timer = setInterval(() => {
                 countdownElement.textContent = seconds;
                 seconds--;
                 
                 if (seconds < 0) {
                     clearInterval(timer);
-                    triggerDownload();
+                    downloadFile();
                 }
             }, 1000);
-        }
-
-        // عند تحميل الصفحة، تحقق إذا كان يجب عرض قسم التنزيل
-        document.addEventListener('DOMContentLoaded', function() {
-            // محاكاة نجاح الدفع (للاستخدام الحقيقي، استبدل هذا بحدث PayPal الفعلي)
-            const isPaymentSuccess = window.location.hash === '#payment_success';
-            
-            if (isPaymentSuccess) {
-                document.getElementById('download-section').style.display = 'block';
-                startCountdown();
-            }
             
             // زر التنزيل اليدوي
-            document.getElementById('download-btn').addEventListener('click', triggerDownload);
-        });
-
-        // (للتجربة السريعة: أضف هذا الرابط في نهاية URL: #payment_success)
+            downloadBtn.addEventListener('click', downloadFile);
+        }
+        
+        // دالة التنزيل الفعلي
+        function downloadFile() {
+            const fileUrl = "assets/bluse.pdf";
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = "أسئلة_رخصة_القيادة.pdf";
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // تغيير حالة الزر بعد التنزيل
+            const downloadBtn = document.getElementById('download-btn');
+            downloadBtn.innerHTML = '<i class="fas fa-check"></i> تم التنزيل بنجاح';
+            downloadBtn.style.background = "#4CAF50";
+            downloadBtn.onclick = null;
+        }
+        
+        // بدء العملية عند تحميل الصفحة
+        window.addEventListener('load', startDownloadProcess);
     </script>
 </body>
 </html>
