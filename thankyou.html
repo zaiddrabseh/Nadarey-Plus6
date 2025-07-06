@@ -3,55 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شكراً لشرائك - ملف رخصة القيادة</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>شكرًا لك | Nadarey-Plus6</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --success-color: #27ae60;
+            --primary-color: #4a6bff;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', Arial, sans-serif;
         }
         
         body {
-            font-family: 'Tajawal', sans-serif;
-            background: #f5f7fa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            margin: 0;
+            color: var(--text-color);
+            line-height: 1.6;
         }
         
         .thank-you-container {
             background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
             max-width: 600px;
             padding: 40px;
             text-align: center;
+            animation: fadeIn 0.8s ease-out;
         }
         
         .checkmark {
             width: 80px;
             height: 80px;
             margin: 0 auto 25px;
-            background-color: var(--success-color);
+            background-color: #4CAF50;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
-        .checkmark i {
+        .checkmark:after {
+            content: "✓";
             color: white;
             font-size: 40px;
+            font-weight: bold;
         }
         
         h1 {
             color: var(--primary-color);
             margin-bottom: 20px;
+            font-size: 28px;
         }
         
         p {
@@ -59,95 +68,140 @@
             font-size: 18px;
         }
         
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--success-color);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 15px 0;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        
-        .download-btn:hover {
-            background: #219653;
-            transform: translateY(-3px);
+        .countdown-box {
+            background: rgba(74, 107, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
         }
         
         .countdown {
-            margin: 20px 0;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+        
+        .contact-box {
+            background: var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .phone:hover {
+            background: #3a5bef;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
             font-size: 16px;
-            color: #555;
+        }
+        
+        .btn:hover {
+            background: #3a5bef;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
         }
     </style>
+    <!-- خط Tajawal للعربية -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="thank-you-container">
-        <div class="checkmark">
-            <i class="fas fa-check"></i>
-        </div>
-        <h1>شكراً لشرائك!</h1>
-        <p>تمت عملية الدفع بنجاح، سيبدأ تنزيل الملف تلقائياً خلال ثوانٍ</p>
+        <div class="checkmark"></div>
+        <h1>شكرًا لك!</h1>
+        <p>تم استلام طلبك بنجاح، سيتم توجيهك لصفحة الدفع خلال:</p>
         
-        <div class="countdown">
-            سيبدأ التنزيل خلال <span id="countdown">5</span> ثانية...
+        <div class="countdown-box">
+            <span class="countdown" id="countdown">5</span> ثانية
         </div>
         
-        <button id="download-btn" class="download-btn">
-            <i class="fas fa-download"></i> تنزيل الملف الآن
-        </button>
+        <div class="contact-box">
+            <p>للتواصل السريع:</p>
+            <a href="tel:0789541798" class="phone">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                0789541798
+            </a>
+        </div>
         
-        <p>للتواصل: <a href="https://wa.me/966789541798">واتساب 0789541798</a></p>
+        <a href="payment.html" class="btn" id="manual-redirect">الانتقال لصفحة الدفع الآن</a>
     </div>
 
     <script>
-        // دالة العد التنازلي والتنزيل
-        function startDownloadProcess() {
-            let seconds = 5;
-            const countdownElement = document.getElementById('countdown');
-            const downloadBtn = document.getElementById('download-btn');
+        // بدء العد التنازلي
+        let seconds = 5;
+        const countdownElement = document.getElementById('countdown');
+        const manualRedirectBtn = document.getElementById('manual-redirect');
+        
+        function updateCountdown() {
+            countdownElement.textContent = seconds;
+            seconds--;
             
-            // تحديث العداد كل ثانية
-            const timer = setInterval(() => {
-                countdownElement.textContent = seconds;
-                seconds--;
-                
-                if (seconds < 0) {
-                    clearInterval(timer);
-                    downloadFile();
-                }
-            }, 1000);
-            
-            // زر التنزيل اليدوي
-            downloadBtn.addEventListener('click', downloadFile);
+            if (seconds < 0) {
+                // التوجيه التلقائي بعد انتهاء العد
+                window.location.href = "payment.html";
+            } else {
+                setTimeout(updateCountdown, 1000);
+            }
         }
         
-        // دالة التنزيل الفعلي
-        function downloadFile() {
-            const fileUrl = "assets/bluse.pdf";
-            const link = document.createElement('a');
-            link.href = fileUrl;
-            link.download = "أسئلة_رخصة_القيادة.pdf";
+        // بدء العد التنازلي عند تحميل الصفحة
+        window.addEventListener('load', function() {
+            updateCountdown();
             
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // تغيير حالة الزر بعد التنزيل
-            const downloadBtn = document.getElementById('download-btn');
-            downloadBtn.innerHTML = '<i class="fas fa-check"></i> تم التنزيل بنجاح';
-            downloadBtn.style.background = "#4CAF50";
-            downloadBtn.onclick = null;
-        }
-        
-        // بدء العملية عند تحميل الصفحة
-        window.addEventListener('load', startDownloadProcess);
+            // إضافة حدث للزر اليدوي
+            manualRedirectBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = "payment.html";
+            });
+        });
     </script>
 </body>
 </html>
